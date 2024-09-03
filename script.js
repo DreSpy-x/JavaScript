@@ -288,7 +288,6 @@ async function consultarBD() {
             undefined, 
             true 
         ); 
-        console.log(error)
     }
 }
 
