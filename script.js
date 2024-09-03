@@ -276,7 +276,7 @@ function mostrarCatalogoCarrito() {
 
 async function consultarBD() {
     try {
-        const response = await fetch("/info.json")
+        const response = await fetch("./info.json")
         const productos = await response.json()
         main(productos)
     } catch (error) {
