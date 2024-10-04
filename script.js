@@ -65,7 +65,7 @@ function crearProductos(productos) {
                 </ul>
             </div>
             <div class ="infoCompra">
-                <p class ="precio">${Dinero({ amount: producto.precio * 100, currency: 'COP' }).toFormat('$0,0.00')}</p>
+                <p class="precio">${'$' + producto.precio + ' COP'}</p>
                 <button id=${producto.id} class= "botonAgregrCarrito">Añadir al carrito</button>
             </div>
         `
@@ -129,7 +129,7 @@ function crearCarrito(carrito) {
         tablaHTML += `
             <tr>
                 <td>${item.nombre}</td>
-                <td>${Dinero({ amount: item.precioUnitario * 100, currency: 'COP' }).toFormat('$0,0.00')}</td>
+                <td>${'$' + item.precioUnitario + ' COP'}</td>
                 <td class=sum-res-prodcutos>
                     <button id=a${item.id}>+</button>
                     ${item.unidades}
@@ -137,7 +137,7 @@ function crearCarrito(carrito) {
 
                 </td>
                 <td>
-                    <p>${Dinero({ amount: item.subtotal * 100, currency: 'COP' }).toFormat('$0,0.00')}</p>
+                    <p>${'$' + item.subtotal + ' COP'}</p>
                     <button id=e${item.id}>Eliminar</button>
                 </td>  
             </tr>
@@ -148,7 +148,7 @@ function crearCarrito(carrito) {
             <tfoot>
                 <tr>
                     <th colspan="3">Total</th>
-                    <th>${Dinero({ amount: carrito.reduce((acc, item) => acc + item.subtotal * 100, 0), currency: 'COP' }).toFormat('$0,0.00')}</th>
+                    <th>${'$' + carrito.reduce((acc, item) => acc + item.subtotal, 0) + ' COP'}</th>
                 </tr>
             </tfoot>
         </table>
